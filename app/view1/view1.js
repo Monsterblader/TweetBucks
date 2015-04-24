@@ -83,20 +83,9 @@ angular.module('myApp.view1', ['ngRoute'])
                 recipientIndex = tweetBody.indexOf("---") + 1;
                 dateStamp = data[i].created_at;
                 postTweet(tweetBody[recipientIndex], tweetBody[amountIndex], dateStamp);
-                deleteTweet(data[i].id);
+                deleteTweet(data[i].id_str);
               }
             }
-            //parse result
-            // loop over array
-            // check that tweet has id
-            // if no
-            //   get post time of tweet
-            //   create transaction id.
-            //   create new tweet
-            //   post new tweet
-            //   delete old tweet
-            //   adjust balances
-
           }).fail(function (err) {
             console.error(err);
           });
