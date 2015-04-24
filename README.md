@@ -6,7 +6,7 @@ This is the prototype for a peer-to-peer digital payment system that uses [Twitt
 
 To send a payment to another user, send a tweet in the following format:
 
---> @(username) $₵ (amount without punctuation)
+--- @(username) $$ (amount without punctuation)
 
 ### Prerequisites
 

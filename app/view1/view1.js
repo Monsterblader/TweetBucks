@@ -2,12 +2,12 @@
 
 angular.module('myApp.view1', ['ngRoute'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/view1', {
           templateUrl: 'view1/view1.html',
           controller: 'View1Ctrl'
-  });
-}])
+        });
+      }])
     .controller('View1Ctrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
         // This is the 'database' for this front-end-only application.
         $rootScope.balances = {"TweetBuckz": 10000};
@@ -37,7 +37,7 @@ angular.module('myApp.view1', ['ngRoute'])
           return Date.parse(dateStamp) + $scope.user.twHandle.slice(0, 2) + recipient.slice(0, 2);
         }
 
-        function postTweet(tweetBody, recipient, amount, dateStamp) {
+        function postTweet(recipient, amount, dateStamp) {
           var newTweet;
           if (+amount < $rootScope.balances[$scope.user.twHandle]) {
             newTweet = "--- " + recipient
@@ -55,15 +55,13 @@ angular.module('myApp.view1', ['ngRoute'])
               console.error(err);
             });
           }
-          // create transaction id
-          // create tweet
-          // post tweet
           // adjust balance
         }
 
         function deleteTweet(ID) {
           var url = "1.1/statuses/destroy/" + ID + ".json";
-          $rootScope.authorizationResult.del(url).then(function (data) {
+          $rootScope.authorizationResult.post(url).then(function (data) {
+            console.log("Message successfully deleted.");
           }).fail(function (err) {
             console.error(err);
           });
@@ -79,15 +77,15 @@ angular.module('myApp.view1', ['ngRoute'])
             // for any transactions that are initiated outside of itself and
             // assigns them ID's.
             for (i = data.length - 1; i >= 0; i -= 1) {
-            if (data[i].text.indexOf("xID") < 0) {
-              tweetBody = data[i].text.split(" ");
-                amountIndex = tweetBody.indexOf("$₵") + 1;
-                recipientIndex = tweetBody.indexOf("-->") + 1;
+              if (data[i].text.indexOf("xID") < 0) {
+                tweetBody = data[i].text.split(" ");
+                amountIndex = tweetBody.indexOf("$$") + 1;
+                recipientIndex = tweetBody.indexOf("---") + 1;
                 dateStamp = data[i].created_at;
-                postTweet(tweetBody, tweetBody[recipientIndex], tweetBody[amountIndex], dateStamp);
+                postTweet(tweetBody[recipientIndex], tweetBody[amountIndex], dateStamp);
                 deleteTweet(data[i].id);
               }
-                }
+            }
             //parse result
             // loop over array
             // check that tweet has id
@@ -99,21 +97,22 @@ angular.module('myApp.view1', ['ngRoute'])
             //   delete old tweet
             //   adjust balances
 
-            }).fail(function (err) {
-          console.error(err);
+          }).fail(function (err) {
+            console.error(err);
           });
         }
-        $scope.master = {twHandle: "TweetBuckz", reHandle: ""};
+
+        $scope.master = {twHandle: "TweetBuckz", reHandle: "uzer"};
         $scope.reset = function () {
-        $scope.user = angular.copy($scope.master);
-          };
-        $scope.submit = function () {
-        console.log($scope.user);
+          $scope.user = angular.copy($scope.master);
         };
-          $scope.refresh = function () {
-        getTweets();
+        $scope.submit = function () {
+          postTweet($scope.user.reHandle, $scope.user.amount, Date.now());
+        };
+        $scope.refresh = function () {
+          getTweets();
         };
 
         $scope.reset();
-          startOauth();
-        }]);
+        startOauth();
+      }]);
