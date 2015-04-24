@@ -66,6 +66,7 @@ account - user, balance
 Messages need to have ID - If transaction sent from Twitter - possible to edit
  or delete and send new with ID?
 'database' - twitter name, password/access, account balance,
+Privacy?
 
 The flow-
 App
