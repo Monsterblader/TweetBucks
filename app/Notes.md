@@ -65,10 +65,99 @@ identity of coin/unit of payment.
 account - user, balance
 Messages need to have ID - If transaction sent from Twitter - possible to edit
  or delete and send new with ID?
-'database' - twitter name, password/access, account balance, 
+'database' - twitter name, password/access, account balance,
 
 The flow-
 App
 User enters target and qty.
 App checks user's account balance.
 if sufficient, send.
+
+Result of oauthResult.get:
+data: Array[1]
+  0: Object
+    contributors: null
+    coordinates: null
+    created_at: "Thu Apr 23 22:22:24 +0000 2015"
+    entities: Object
+      hashtags: Array[0]
+        length: 0
+        __proto__: Array[0]
+      symbols: Array[0]
+        length: 0
+        __proto__: Array[0]
+      urls: Array[0]
+        length: 0
+        __proto__: Array[0]
+      user_mentions: Array[0]
+        length: 0
+        __proto__: Array[0]
+      __proto__: Object
+    favorite_count: 0
+    favorited: false
+    geo: null
+    id: 591366540403978200
+    id_str: "591366540403978240"
+    in_reply_to_screen_name: null
+    in_reply_to_status_id: null
+    in_reply_to_status_id_str: null
+    in_reply_to_user_id: null
+    in_reply_to_user_id_str: null
+    lang: "en"
+    place: null
+    retweet_count: 0
+    retweeted: false
+    source: "<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>"
+    text: "First tweet."
+    truncated: false
+    user: Object
+      contributors_enabled: false
+      created_at: "Thu Apr 23 11:42:46 +0000 2015"
+      default_profile: true
+      default_profile_image: true
+      description: ""
+      entities: Object
+        description: Object
+          urls: Array[0]
+            length: 0
+            __proto__: Array[0]
+          __proto__: Object
+        __proto__: Object
+      favourites_count: 0
+      follow_request_sent: false
+      followers_count: 0
+      following: false
+      friends_count: 0
+      geo_enabled: false
+      id: 3168630986
+      id_str: "3168630986"
+      is_translation_enabled: false
+      is_translator: false
+      lang: "en"
+      listed_count: 0
+      location: ""
+      name: "Tweet Bucks"
+      notifications: false
+      profile_background_color: "C0DEED"
+      profile_background_image_url: "http://abs.twimg.com/images/themes/theme1/bg.png"
+      profile_background_image_url_https: "https://abs.twimg.com/images/themes/theme1/bg.png"
+      profile_background_tile: false
+      profile_image_url: "http://abs.twimg.com/sticky/default_profile_images/default_profile_3_normal.png"
+      profile_image_url_https: "https://abs.twimg.com/sticky/default_profile_images/default_profile_3_normal.png"
+      profile_link_color: "0084B4"
+      profile_location: null
+      profile_sidebar_border_color: "C0DEED"
+      profile_sidebar_fill_color: "DDEEF6"
+      profile_text_color: "333333"
+      profile_use_background_image: true
+      protected: false
+      screen_name: "TweetBucksAL"
+      statuses_count: 1
+      time_zone: null
+      url: null
+      utc_offset: null
+      verified: false
+      __proto__: Object
+    __proto__: Object
+  length: 1
+  __proto__: Array[0]

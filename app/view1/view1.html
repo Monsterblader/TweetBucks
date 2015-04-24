@@ -1,1 +1,14 @@
-<p>This is the partial for view 1.</p>
+Your account balance: {{balances[user.twHandle]}}
+<form novalidate>
+  User Handle:<br>
+  <input type="text" ng-model="user.twHandle"><br>
+  Recipient's Handle:<br>
+  <input type="text" ng-model="user.reHandle"><br>
+  Transaction Amount:<br>
+  <input type="text" ng-model="user.amount">
+  <br><br>
+  <button ng-click="submit()">Submit</button>
+  <button ng-click="reset()">Reset</button>
+</form>
+
+<button ng-click="refresh()">Refresh</button>
