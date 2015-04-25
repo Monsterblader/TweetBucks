@@ -18,8 +18,23 @@ For front-end only development, I use an IDE that has a live-update plug in for 
 
 I incorporated a library/API, Oauth.io, that handles Oauth.
 
+I am hosting this project on Heroku since, like using Angular, I have a routine, so it is faster.
+
 ### Further Development
 
 Implement the ability to switch users.
 Improve interface.
 Implement responsive layout.
+
+### P2P Payments
+
+I would expect that any reasonable way to implement payments would be via an API.  In order to provide persistence, the first step would be to create a server for security and access.
+
+PayPal, Planet Payment, and other companies enable direct payments via their API's.  PayPal also facilitates payments via e-mail.
+
+### Other Features
+
+It's already on its way to being a Twitter client.  Expanding the application to handle full Twitter functionality would be pretty easy.
+
+Additional redundancy and/or security.  Block chains are successful because a record of each transaction is duplicated many times, making it all but impossible to misrepresent a past payment.
+
