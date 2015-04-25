@@ -46,6 +46,7 @@ angular.module('myApp.view1', ['ngRoute'])
               console.error(err);
             });
           }
+          $scope.reset();
           // adjust balance
         }
 
@@ -66,7 +67,10 @@ angular.module('myApp.view1', ['ngRoute'])
             // Each transaction needs a unique digital ID to be validated.  As
             // the app should be the only source of transaction ID's, it looks
             // for any transactions that are initiated outside of itself and
-            // assigns them ID's.
+            // assigns them ID's, posts the new message to Twitter, and deletes
+            // old one.
+            $scope.tweets = data;
+            $scope.reset();
             for (i = data.length - 1; i >= 0; i -= 1) {
               if (data[i].text.indexOf("xID") < 0) {
                 tweetBody = data[i].text.split(" ");
@@ -94,5 +98,5 @@ angular.module('myApp.view1', ['ngRoute'])
         };
 
         $scope.reset();
-//        startOauth();
+        startOauth();
       }]);

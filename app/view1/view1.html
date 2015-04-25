@@ -1,17 +1,36 @@
-<div class="topBar">
-  User Handle:<br>
-  <input type="text" ng-model="user.twHandle"><br>
-  Your account balance: {{balances[user.twHandle]}}
+<div class="top-bar">
+  <div class="title"><i>Tweet Bucks</i></div>
 </div>
 
-<form novalidate>
-  Recipient's Handle:<br>
-  <input type="text" ng-model="user.reHandle"><br>
-  Transaction Amount:<br>
-  <input type="text" ng-model="user.amount">
-  <br><br>
-  <button class="btn btn-primary" ng-click="submit()">Submit</button>
-  <button class="btn btn-primary" ng-click="reset()">Reset</button>
-</form>
+<div class="content">
+    <div class="col col-left side-box">
+      <div class="minor-title"><i>You</i></div>
+      Handle:<br>
+      <input type="text" ng-model="user.twHandle">
+      <div class="balance">Your account balance:<br>{{balances[user.twHandle]}}</div>
+      <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
+    </div>
 
-<button class="btn btn-primary" ng-click="refresh()">Refresh</button>
+  <div class="col col-center side-box" ng-repeat='tweet in tweets'>
+    <div class="tweet">
+      <div class="tweet-date">
+        {{tweet.created_at}}
+      </div>
+      <div class="tweet-text">
+        {{tweet.text}}
+      </div>
+    </div>
+  </div>
+
+    <div class="col col-right side-box">
+      <div class="minor-title"><i>Send Bucks</i></div>
+      <form novalidate>
+        Recipient's Handle:<br>
+        <input type="text" ng-model="user.reHandle"><br>
+        Transaction Amount:<br>
+        <input type="text" ng-model="user.amount">
+        <br><br>
+        <button class="btn btn-primary" ng-click="submit()">Submit</button>
+      </form>
+    </div>
+</div>
