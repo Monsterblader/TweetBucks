@@ -11,26 +11,26 @@
       <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
     </div>
 
-  <div class="col col-center side-box" ng-repeat='tweet in tweets'>
-    <div class="tweet">
+  <div class="col col-center">
+    <div class="tweet" ng-repeat="tweet in tweets">
       <div class="tweet-date">
         {{tweet.created_at}}
       </div>
-      <div class="tweet-text">
+      <div class="tweet-text side-box">
         {{tweet.text}}
       </div>
     </div>
   </div>
 
-    <div class="col col-right side-box">
-      <div class="minor-title"><i>Send Bucks</i></div>
-      <form novalidate>
-        Recipient's Handle:<br>
-        <input type="text" ng-model="user.reHandle"><br>
-        Transaction Amount:<br>
-        <input type="text" ng-model="user.amount">
-        <br><br>
-        <button class="btn btn-primary" ng-click="submit()">Submit</button>
-      </form>
-    </div>
+  <div class="col col-right side-box">
+    <div class="minor-title"><i>Send Bucks</i></div>
+    <form novalidate>
+      Recipient's Handle:<br>
+      <input type="text" ng-model="user.reHandle"><br>
+      Transaction Amount:<br>
+      <input type="text" ng-model="user.amount">
+      <br><br>
+      <button class="btn btn-primary" ng-click="submit()">Submit</button>
+    </form>
+  </div>
 </div>

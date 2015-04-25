@@ -70,9 +70,9 @@ angular.module('myApp.view1', ['ngRoute'])
             // assigns them ID's, posts the new message to Twitter, and deletes
             // old one.
             $scope.tweets = data;
-            $scope.reset();
+            $scope.$apply();
             for (i = data.length - 1; i >= 0; i -= 1) {
-              if (data[i].text.indexOf("xID") < 0) {
+              if ((data[i].text.indexOf("---") > -1) && (data[i].text.indexOf("xID") < 0)) {
                 tweetBody = data[i].text.split(" ");
                 amountIndex = tweetBody.indexOf("$$") + 1;
                 recipientIndex = tweetBody.indexOf("---") + 1;
@@ -91,7 +91,7 @@ angular.module('myApp.view1', ['ngRoute'])
           $scope.user = angular.copy($scope.master);
         };
         $scope.submit = function () {
-          postTweet($scope.user.reHandle, $scope.user.amount, Date.now());
+          postTweet($scope.user.reHandle, $scope.user.amount, new Date());
         };
         $scope.refresh = function () {
           getTweets();

@@ -21,3 +21,5 @@ I incorporated a library/API, Oauth.io, that handles Oauth.
 ### Further Development
 
 Implement the ability to switch users.
+Improve interface.
+Implement responsive layout.
