@@ -10,21 +10,12 @@ angular.module('myApp.view1', ['ngRoute'])
       }])
     .controller('View1Ctrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
         // This is the 'database' for this front-end-only application.
-        $rootScope.balances = {"TweetBuckz": 10000};
+        $rootScope.balances = {"TweetBuckz": 10000, "uzer": 0};
         function startOauth() {
           OAuth.initialize('SbsZIoL7osX0SzdnRYeA6GgzaqQ');
           OAuth.popup('twitter')
               .done(function (result) {
                 $rootScope.authorizationResult = result;
-                //use result.access_token in your API request
-                //or use result.get|post|put|del|patch|me methods (see below)
-                result.me()
-                    .done(function (response) {
-                      //
-                      })
-                    .fail(function (err) {
-                      console.error(err);
-                    });
               })
               .fail(function (err) {
                 console.error(err);
@@ -103,5 +94,5 @@ angular.module('myApp.view1', ['ngRoute'])
         };
 
         $scope.reset();
-        startOauth();
+//        startOauth();
       }]);

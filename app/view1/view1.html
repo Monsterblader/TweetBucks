@@ -1,14 +1,17 @@
-Your account balance: {{balances[user.twHandle]}}
-<form novalidate>
+<div class="topBar">
   User Handle:<br>
   <input type="text" ng-model="user.twHandle"><br>
+  Your account balance: {{balances[user.twHandle]}}
+</div>
+
+<form novalidate>
   Recipient's Handle:<br>
   <input type="text" ng-model="user.reHandle"><br>
   Transaction Amount:<br>
   <input type="text" ng-model="user.amount">
   <br><br>
-  <button ng-click="submit()">Submit</button>
-  <button ng-click="reset()">Reset</button>
+  <button class="btn btn-primary" ng-click="submit()">Submit</button>
+  <button class="btn btn-primary" ng-click="reset()">Reset</button>
 </form>
 
-<button ng-click="refresh()">Refresh</button>
+<button class="btn btn-primary" ng-click="refresh()">Refresh</button>
